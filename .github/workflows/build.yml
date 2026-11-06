@@ -1,0 +1,22 @@
+name: Build and check
+
+on:
+  push:
+    branches: [main, 'dev/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build WPF app and checks
+        run: dotnet build Battleship.sln --configuration Release
+      - name: Check game rules
+        run: dotnet run --project tests/Battleship.Checks --configuration Release --no-build

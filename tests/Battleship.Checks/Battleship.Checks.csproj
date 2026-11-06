@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Dieselbe Spiellogik auch ohne Windows-Oberfläche prüfen. -->
+    <Compile Include="../../Battleship/Board.cs" Link="Board.cs" />
+  </ItemGroup>
+</Project>
